@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | FAQ accordion</title>
+<link rel="stylesheet" href="/dist/style.css">
+
+
+<style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    <img src="/assets/images/icon-star.svg">
+    <h1>FAQs
+    </h1>
+  </header>
+  <main>
+    <ul>
+       <li>
+        <div class="question">
+          <h3>What is Frontend Mentor, and how will it help me?</h3>
+          <button class="expand"></button>
+
+          </div>
+        <p class="answer"> Frontend Mentor offers realistic coding challenges to help developers improve their 
+        frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for 
+        all levels and ideal for portfolio building.</p>
+        
+       </li>
+       <li>
+        <div class="question">
+          <h3>Is Frontend Mentor free?</h3>
+          <button class="expand"></button>
+
+        </div>
+      <p class="answer"> Yes, Frontend Mentor offers both free and premium coding challenges, with the free 
+        option providing access to a range of projects suitable for all skill levels.</p>
+        
+       </li>
+       <li>
+        <div class="question">
+          <h3>  Can I use Frontend Mentor projects in my portfolio?
+          </h3> 
+          <button class="expand"></button>
+
+        </div>
+       
+        <p class="answer">Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
+          way to showcase your skills to potential employers!</p>
+         
+       </li>
+       <li>
+        <div class="question">
+          <h3>  How can I get help if I'm stuck on a Frontend Mentor challenge?
+          </h3>
+          <button class="expand"></button>
+        </div>
+        
+        <p class="answer">The best place to get help is inside Frontend Mentor's Discord community. There's a help 
+          channel where you can ask questions and seek support from other community members.</p>
+         
+       </li>
+    </ul>
+  </main>
+ 
+</div>
+
+
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Mohamed Ahmed</a>.
+  </div>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const headers = document.querySelectorAll('.question h3');
+  const buttons = document.querySelectorAll('.expand');
+
+  headers.forEach(function (header, index) {
+    header.addEventListener('click', function () {
+      toggleAccordion(index);
+    });
+  });
+
+  buttons.forEach(function (button, index) {
+    button.addEventListener('click', function () {
+      toggleAccordion(index);
+    });
+  });
+
+  function toggleAccordion(index) {
+    const answer = buttons[index].parentElement.nextElementSibling;
+    const isExpanded = answer.style.display === 'block';
+
+    // Toggle the visibility of the answer paragraph
+    answer.style.display = isExpanded ? 'none' : 'block';
+
+    // Toggle the plus and minus icons based on the visibility of the answer paragraph
+    if (isExpanded) {
+      buttons[index].style.backgroundImage = 'url("/assets/images/icon-plus.svg")'; // Change background to plus icon
+    } else {
+      buttons[index].style.backgroundImage = 'url("/assets/images/icon-minus.svg")'; // Change background to minus icon
+    }
+  }
+});
+
+  </script>
+</body>
+</html>
